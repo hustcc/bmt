@@ -32,6 +32,17 @@ measureTextByCanvas('hello world', font); // ~= 80
 ```
 
 
+## Perf
+
+![perf](./perf.jpg)
+
+Run on your computer.
+
+```bash
+$ npm run perf
+```
+
+
 ## License
 
 MIT@[hustcc](https://github.com/hustcc).

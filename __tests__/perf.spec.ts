@@ -7,10 +7,10 @@ describe('bmt', () => {
   test('perf', () => {
     const chart = new Chart({
       container: createDiv(),
-      width: 800,
-      height: 600,
+      width: 400,
+      height: 300,
       autoFit: false,
-      padding: 48,
+      padding: [32, 48, 48, 48],
     });
 
     chart.data(data);

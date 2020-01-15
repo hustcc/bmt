@@ -10,7 +10,8 @@
   "files": [
     "lib",
     "esm",
-    "dist"
+    "dist",
+    "perf.jpg"
   ],
   "scripts": {
     "clean": "rimraf -rf lib",
@@ -21,7 +22,8 @@
     "build:cjs": "rimraf ./lib && tsc --module commonjs --outDir lib",
     "build:esm": "rimraf ./esm && tsc --module ESNext --outDir esm",
     "build": "npm run build:cjs && npm run build:esm && npm run build:umd",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "perf": "DEBUG_MODE=1 jest __tests__/perf.spec.ts"
   },
   "dependencies": {},
   "keywords": [
