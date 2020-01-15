@@ -1,0 +1,72 @@
+{
+  "name": "bmt",
+  "version": "0.1.0",
+  "description": "in Browser, Measure Text width.",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "browser": "dist/bmt.min.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "esm",
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf -rf lib",
+    "lint-staged": "lint-staged",
+    "test": "jest",
+    "start": "tsc -w",
+    "build:umd": "rimraf ./dist && rollup -c",
+    "build:cjs": "rimraf ./lib && tsc --module commonjs --outDir lib",
+    "build:esm": "rimraf ./esm && tsc --module ESNext --outDir esm",
+    "build": "npm run build:cjs && npm run build:esm && npm run build:umd",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {},
+  "keywords": [
+    "browser",
+    "measureText",
+    "canvas",
+    "dom"
+  ],
+  "devDependencies": {
+    "@antv/g2": "^4.0.0-beta.5",
+    "@commitlint/cli": "^8.2.0",
+    "@types/jest": "^24.0.18",
+    "husky": "^3.0.5",
+    "jest": "^24.9.0",
+    "jest-electron": "^0.1.7",
+    "lint-staged": "^9.3.0",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "rollup": "^1.24.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript": "^1.0.1",
+    "rollup-plugin-uglify": "^6.0.3",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
+  },
+  "jest": {
+    "runner": "jest-electron/runner",
+    "testEnvironment": "jest-electron/environment",
+    "preset": "ts-jest",
+    "collectCoverage": true,
+    "testRegex": "(/__tests__/.*\\.(test|spec))\\.ts$",
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ]
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
