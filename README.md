@@ -34,7 +34,7 @@ measureTextByCanvas('hello world', font); // ~= 80
 
 ## Perf
 
-![perf](./perf.jpg)
+<img alt="perf" title="perf" src="./perf.jpg" width="400" height="300" />
 
 Run on your computer.
 
