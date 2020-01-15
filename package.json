@@ -14,7 +14,7 @@
     "perf.jpg"
   ],
   "scripts": {
-    "clean": "rimraf -rf lib",
+    "clean": "rimraf -rf lib esm dist",
     "lint-staged": "lint-staged",
     "test": "jest",
     "start": "tsc -w",
