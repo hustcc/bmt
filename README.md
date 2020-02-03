@@ -17,8 +17,6 @@ $ npm i --save bmt
 
 ## Usage
 
- - simple template string
-
 ```ts
 import { measureTextByDOM, measureTextByCanvas } from 'bmt';
 
