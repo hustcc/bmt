@@ -1,14 +1,19 @@
 import { Font } from './types';
 
-const div = document.createElement('span');
-// 不显示在视窗
-div.style.visibility = 'hidden';
-div.style.position = 'absolute';
-div.style.display = 'inline';
-div.style.left = '-1000px';
-div.style.top = '-1000px';
+let span;
 
-document.body.appendChild(div);
+function createSpan() {
+  if (span) return;
+  span = document.createElement('span');
+  // 不显示在视窗
+  span.style.visibility = 'hidden';
+  span.style.position = 'absolute';
+  span.style.display = 'inline';
+  span.style.left = '-1000px';
+  span.style.top = '-1000px';
+
+  document.body.appendChild(span);
+}
 
 /**
  * measure text By DOM
@@ -16,15 +21,18 @@ document.body.appendChild(div);
  * @param font
  */
 export function measureTextByDOM(text: string, font: Font): number {
+  // 先创建 span
+  createSpan();
+
   const { fontSize, fontFamily, fontWeight, fontStyle, fontVariant } = font;
 
-  div.style.fontSize = `${fontSize}px`;
-  div.style.fontFamily = fontFamily;
-  div.style.fontWeight = fontWeight;
-  div.style.fontStyle = fontStyle;
-  div.style.fontVariant = fontVariant;
+  span.style.fontSize = `${fontSize}px`;
+  span.style.fontFamily = fontFamily;
+  span.style.fontWeight = fontWeight;
+  span.style.fontStyle = fontStyle;
+  span.style.fontVariant = fontVariant;
 
-  div.innerHTML = text;
+  span.innerHTML = text;
 
-  return div.clientWidth;
+  return span.clientWidth;
 }

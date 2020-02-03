@@ -1,6 +1,6 @@
 {
   "name": "bmt",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "in Browser, Measure Text width.",
   "license": "MIT",
   "main": "lib/index.js",
@@ -10,8 +10,7 @@
   "files": [
     "lib",
     "esm",
-    "dist",
-    "perf.jpg"
+    "dist"
   ],
   "scripts": {
     "clean": "rimraf -rf lib esm dist",
@@ -25,7 +24,6 @@
     "prepublishOnly": "npm run build",
     "perf": "DEBUG_MODE=1 jest __tests__/perf.spec.ts"
   },
-  "dependencies": {},
   "keywords": [
     "browser",
     "measureText",
